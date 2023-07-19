@@ -637,31 +637,83 @@
 				<from>resultf933ece96dac47a480064176b7f840aa/sum</from>
 				<to>historicSum/sum</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="ab88c7ae62cf44fd90edab692aa383bb"
+					serviceId="nabu.utils.Math.sum"
+					resultName="result86bdf5fd35e84f62a6edfbae175b558d"
+					temporaryMapping="true"
+					x="367"
+					y="397"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="f41505514ae5447dbfacea2e23a69ad4"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>historicSum/count</from>
+					<to>values[0]</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="45a2aac197c74e1faffd8dcd4992903f"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>amountOfPoints</from>
+					<to>values[1]</to>
+				</steps>
+			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 					disabled="false"
-					id="971c9431f4e54f779e0fe5bb18cc131a"
+					id="c8cfea6e2b9d42a49684952160e757a0"
 					mask="false"
 					optional="false"
 					fixedValue="false">
-				<from>amountOfPoints</from>
+				<from>result86bdf5fd35e84f62a6edfbae175b558d/sum</from>
 				<to>historicSum/count</to>
 			</steps>
 		</steps>
 		<query>grouped</query>
 	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-			comment="Map data output"
+	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 			disabled="false"
-			id="06f7253cdb1148b7ac1885e7546a2dad"
-			lineNumber="22">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+			id="88489f9a2a0f436b9113d83dcadf2ffb"
+			lineNumber="22"
+			query="input/window">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="If we have no window, we only update sums where we have new point data"
 				disabled="false"
-				id="df53da9656fd49cb910a428f2d0e8654"
-				mask="false"
-				optional="false"
-				fixedValue="false">
-			<from>output/state/sums</from>
-			<to>output/data</to>
+				id="06f7253cdb1148b7ac1885e7546a2dad"
+				label="null"
+				lineNumber="23">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="df53da9656fd49cb910a428f2d0e8654"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>output/state/sums[dataKey # /grouped/dataKey]</from>
+				<to>output/data</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Otherwise, all sums _may_ have been updated, we currently don't keep track"
+				disabled="false"
+				id="f9203133d9164c89b2e7cc842b432a76"
+				lineNumber="24">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="17054374cc5e4743be40e043dd9da787"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>output/state/sums</from>
+				<to>output/data</to>
+			</steps>
 		</steps>
 	</steps>
 </sequence>

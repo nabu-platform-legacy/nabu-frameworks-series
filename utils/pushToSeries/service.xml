@@ -474,69 +474,17 @@
 			</steps>
 		</steps>
 	</steps>
-	<steps xsi:type="be.nabu.libs.services.vm.step.For"
-			disabled="false"
-			id="5de13aded095489c9dc5fed621e6a584"
-			label="series/dataKeyQuery != null"
-			lineNumber="14"
-			variable="data">
-		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
-				disabled="false"
-				id="8291301655ea4049bc17644cf02f4eb9"
-				lineNumber="15">
-			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
-					disabled="false"
-					id="82013d65cecd4eeca368c8dbba2015b5"
-					serviceId="nabu.services.glue.Services.evaluate"
-					resultName="result8817b2245e8b4994bcce3c538a0885aa"
-					temporaryMapping="true"
-					x="47"
-					y="117"
-					invocationOrder="0"
-					asynchronous="false"
-					recache="false">
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="a02c90f0d42a42248ef99d55be6a57e6"
-						mask="false"
-						optional="false"
-						fixedValue="false">
-					<from>series/dataKeyQuery</from>
-					<to>rule</to>
-				</steps>
-				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-						disabled="false"
-						id="ae4431b9f5944b4f83a17450a831b849"
-						mask="false"
-						optional="false"
-						fixedValue="false">
-					<from>data</from>
-					<to>context[0]</to>
-				</steps>
-			</steps>
-			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-					disabled="false"
-					id="54d22ebdbf124fda97be9446b781635a"
-					mask="false"
-					optional="false"
-					fixedValue="false">
-				<from>result8817b2245e8b4994bcce3c538a0885aa/response</from>
-				<to>dataKeys</to>
-			</steps>
-		</steps>
-		<query>input/data</query>
-	</steps>
 	<steps xsi:type="be.nabu.libs.services.vm.step.Switch"
 			disabled="false"
 			id="b3b679bf86bc4122b52477558c699c50"
-			lineNumber="16"
+			lineNumber="14"
 			query="series/historize">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				comment="If we want to historize, update the stopped of existing keyless data"
 				disabled="false"
 				id="e2d3ffd472484f7f8cd6f9cc51628cd9"
 				label="true"
-				lineNumber="17">
+				lineNumber="15">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="e46b78db3f8849939d572fb1aa424fd0"
@@ -572,7 +520,7 @@
 				comment="Otherwise, we just delete the keyless data"
 				disabled="false"
 				id="728a6e832bd24ac894a62dec37eb48c9"
-				lineNumber="18">
+				lineNumber="16">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="4cf9f3c00c2d457aa88c61878083c361"
@@ -601,23 +549,23 @@
 			disabled="false"
 			id="f7f99e20b28b4fa88d957b5be7f56a0a"
 			label="input/data"
-			lineNumber="19">
+			lineNumber="17">
 		<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
 				comment="If we use data keys, make sure we have them"
 				disabled="false"
 				id="775640d8604a44ca9981e3bece14a1d8"
 				label="series/dataKeyQuery != null"
-				lineNumber="20">
+				lineNumber="18">
 			<steps xsi:type="be.nabu.libs.services.vm.step.For"
 					disabled="false"
 					id="aff9abbe0df54ab096d5e525d847ee81"
-					lineNumber="21"
+					lineNumber="19"
 					variable="data"
 					into="dataKeys">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						disabled="false"
 						id="378bde51d7194f68be1cf384e67a44e6"
-						lineNumber="22">
+						lineNumber="20">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="8ac55691ed5c4a1f99e69cbda144c91c"
@@ -663,7 +611,7 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
 					id="a5bc3b4180f94f52ad4fae17228e0d0c"
-					lineNumber="23">
+					lineNumber="21">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="49100daf399f4a63875d25c72ca7ca73"
@@ -699,7 +647,7 @@
 					disabled="false"
 					id="26f8e6e205df40539b59bcd07743ba64"
 					label="uniqueDataKeys != null"
-					lineNumber="24">
+					lineNumber="22">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="48525291c91946b5b603e7d8e4177f32"
@@ -745,14 +693,14 @@
 					disabled="false"
 					id="8decd5fbd3f84d9bac67a97dccef6895"
 					label="existingDataKeys"
-					lineNumber="25"
+					lineNumber="23"
 					query="series/historize">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="Update the stopped of the keyed data"
 						disabled="false"
 						id="1107d3dfa900450883043ff5eff00095"
 						label="true"
-						lineNumber="26">
+						lineNumber="24">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="43365f3550df42a6a29170ec4e71ee81"
@@ -797,7 +745,7 @@
 						comment="Delete keyed data for these particular keys"
 						disabled="false"
 						id="affd6c6ce885460aa8e7b97ac3e68584"
-						lineNumber="27">
+						lineNumber="25">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="2279e7bf0ea6428d916dd32fd1921bf7"
@@ -833,13 +781,13 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.For"
 					disabled="false"
 					id="4c71a243f33448f0b967defee8261776"
-					lineNumber="28"
+					lineNumber="26"
 					variable="dataKeyToCreate">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="Map standard"
 						disabled="false"
 						id="a00f790e5a024d2e8f560365e5676908"
-						lineNumber="29">
+						lineNumber="27">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
 							id="f765d0644c7148c98ba666b26bacf3c6"
@@ -872,7 +820,7 @@
 						disabled="false"
 						id="77e0772397e34122b54000cbff65f52b"
 						label="series/dataKeyEnricherId != null"
-						lineNumber="30">
+						lineNumber="28">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="d85010fda93341cfac507cbfc4c052c2"
@@ -943,7 +891,7 @@
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						disabled="false"
 						id="a65979c4c5954f538295394668f68202"
-						lineNumber="31">
+						lineNumber="29">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="2cb190a5fc6446ba882c67acad6cfaf0"
@@ -1015,7 +963,7 @@
 		<steps xsi:type="be.nabu.libs.services.vm.step.For"
 				disabled="false"
 				id="955cf74c376448dd84c7b6f63484dc65"
-				lineNumber="32"
+				lineNumber="30"
 				variable="data"
 				index="dataIndex"
 				into="dataPointsToCreate">
@@ -1023,7 +971,7 @@
 					comment="Get the data key for this piece of data"
 					disabled="false"
 					id="e4f1aa20020e44e886a879481a7f5da6"
-					lineNumber="33">
+					lineNumber="31">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 						disabled="false"
 						id="e41920dc729d4cf8ae2c5e11d45f310b"
@@ -1043,7 +991,7 @@
 					disabled="false"
 					id="36a1e05d791a4060a18fb059bf545fc0"
 					label="dataKey != null"
-					lineNumber="34">
+					lineNumber="32">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 						disabled="false"
 						id="afa8b5f3c6884ce29f851c7c1580cc2f"
@@ -1057,7 +1005,7 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
 					id="43c4856f78b148b2904d613e891d2513"
-					lineNumber="35">
+					lineNumber="33">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="263f0223a836402db9eeb8603dbb39f6"
@@ -1191,7 +1139,7 @@
 				disabled="false"
 				id="dba187ff37354065b139c414f1ebcae5"
 				label="dataPointsToCreate"
-				lineNumber="36">
+				lineNumber="34">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="26087e04eda0421897d79ebc3a4fcd13"
