@@ -1,5 +1,4 @@
 <structure name="state">
-    <field name="sum" type="java.lang.Double"/>
-    <field name="count" type="java.lang.Long"/>
+    <structure definition="nabu.frameworks.series.providers.sum.data" maxOccurs="unbounded" minOccurs="0" name="sums"/>
     <structure definition="nabu.frameworks.series.providers.sum.point" maxOccurs="unbounded" minOccurs="0" name="points"/>
 </structure>

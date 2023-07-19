@@ -1,0 +1,4 @@
+<structure name="pointGroup">
+    <field minOccurs="0" name="dataKey" type="java.lang.String"/>
+    <structure definition="nabu.frameworks.series.providers.sum.point" maxOccurs="unbounded" minOccurs="0" name="points"/>
+</structure>

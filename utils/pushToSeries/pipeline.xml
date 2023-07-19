@@ -18,4 +18,5 @@
     <field name="dataKey" type="java.lang.String"/>
     <structure collectionName="seriesDataKeys" definition="nabu.frameworks.series.crud.seriesDataKey.types.output" minOccurs="0" name="existingDataKey"/>
     <field minOccurs="0" name="server" type="java.lang.String"/>
+    <field maxOccurs="unbounded" name="uniqueDataKeys" type="java.lang.String"/>
 </structure>

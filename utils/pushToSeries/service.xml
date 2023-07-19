@@ -662,8 +662,44 @@
 			</steps>
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
-					id="26f8e6e205df40539b59bcd07743ba64"
+					id="a5bc3b4180f94f52ad4fae17228e0d0c"
 					lineNumber="23">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="49100daf399f4a63875d25c72ca7ca73"
+						serviceId="nabu.utils.List.unique"
+						resultName="resultf904b074e75842fb99e1f2dfc3b25764"
+						temporaryMapping="true"
+						x="58"
+						y="183"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="70928326bcf94bce8be81fc7c43ee2b9"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>dataKeys[$this != null]</from>
+						<to>list</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="0c6f7fb386a34458ac34a76eec3dc458"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>resultf904b074e75842fb99e1f2dfc3b25764/list</from>
+					<to>uniqueDataKeys</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					disabled="false"
+					id="26f8e6e205df40539b59bcd07743ba64"
+					label="uniqueDataKeys != null"
+					lineNumber="24">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="48525291c91946b5b603e7d8e4177f32"
@@ -677,21 +713,21 @@
 						recache="false">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
-							id="ea3a612725c64a6da8bada0bd8487c55"
-							mask="false"
-							optional="false"
-							fixedValue="false">
-						<from>dataKeys</from>
-						<to>filter/dataKey</to>
-					</steps>
-					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
-							disabled="false"
 							id="15958a92635846468debc3a8c89e29d1"
 							mask="false"
 							optional="false"
 							fixedValue="false">
 						<from>series/id</from>
 						<to>filter/seriesDefinitionId[0]</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="e6aad526b5ca4245b60d825a94a7a60b"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>uniqueDataKeys</from>
+						<to>filter/dataKey</to>
 					</steps>
 				</steps>
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
@@ -709,14 +745,14 @@
 					disabled="false"
 					id="8decd5fbd3f84d9bac67a97dccef6895"
 					label="existingDataKeys"
-					lineNumber="24"
+					lineNumber="25"
 					query="series/historize">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="Update the stopped of the keyed data"
 						disabled="false"
 						id="1107d3dfa900450883043ff5eff00095"
 						label="true"
-						lineNumber="25">
+						lineNumber="26">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="43365f3550df42a6a29170ec4e71ee81"
@@ -761,7 +797,7 @@
 						comment="Delete keyed data for these particular keys"
 						disabled="false"
 						id="affd6c6ce885460aa8e7b97ac3e68584"
-						lineNumber="26">
+						lineNumber="27">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="2279e7bf0ea6428d916dd32fd1921bf7"
@@ -797,13 +833,13 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.For"
 					disabled="false"
 					id="4c71a243f33448f0b967defee8261776"
-					lineNumber="27"
+					lineNumber="28"
 					variable="dataKeyToCreate">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						comment="Map standard"
 						disabled="false"
 						id="a00f790e5a024d2e8f560365e5676908"
-						lineNumber="28">
+						lineNumber="29">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 							disabled="false"
 							id="f765d0644c7148c98ba666b26bacf3c6"
@@ -836,7 +872,7 @@
 						disabled="false"
 						id="77e0772397e34122b54000cbff65f52b"
 						label="series/dataKeyEnricherId != null"
-						lineNumber="29">
+						lineNumber="30">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="d85010fda93341cfac507cbfc4c052c2"
@@ -907,7 +943,7 @@
 				<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 						disabled="false"
 						id="a65979c4c5954f538295394668f68202"
-						lineNumber="30">
+						lineNumber="31">
 					<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 							disabled="false"
 							id="2cb190a5fc6446ba882c67acad6cfaf0"
@@ -973,13 +1009,13 @@
 						<to>existingDataKeys</to>
 					</steps>
 				</steps>
-				<query>dataKeys[$this !# /existingDataKeys/dataKey]</query>
+				<query>uniqueDataKeys[$this != null &amp;&amp; $this !# /existingDataKeys/dataKey]</query>
 			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.For"
 				disabled="false"
 				id="955cf74c376448dd84c7b6f63484dc65"
-				lineNumber="31"
+				lineNumber="32"
 				variable="data"
 				index="dataIndex"
 				into="dataPointsToCreate">
@@ -987,7 +1023,7 @@
 					comment="Get the data key for this piece of data"
 					disabled="false"
 					id="e4f1aa20020e44e886a879481a7f5da6"
-					lineNumber="32">
+					lineNumber="33">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 						disabled="false"
 						id="e41920dc729d4cf8ae2c5e11d45f310b"
@@ -1007,7 +1043,7 @@
 					disabled="false"
 					id="36a1e05d791a4060a18fb059bf545fc0"
 					label="dataKey != null"
-					lineNumber="33">
+					lineNumber="34">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
 						disabled="false"
 						id="afa8b5f3c6884ce29f851c7c1580cc2f"
@@ -1021,7 +1057,7 @@
 			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 					disabled="false"
 					id="43c4856f78b148b2904d613e891d2513"
-					lineNumber="34">
+					lineNumber="35">
 				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 						disabled="false"
 						id="263f0223a836402db9eeb8603dbb39f6"
@@ -1155,7 +1191,7 @@
 				disabled="false"
 				id="dba187ff37354065b139c414f1ebcae5"
 				label="dataPointsToCreate"
-				lineNumber="35">
+				lineNumber="36">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="26087e04eda0421897d79ebc3a4fcd13"

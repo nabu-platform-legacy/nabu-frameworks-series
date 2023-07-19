@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2023-07-10T13:18:10.569+02:00" lastModified="2023-07-10T13:19:25.974+02:00" leaf="true" version="4">
+<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2023-07-10T13:18:10.569+02:00" lastModified="2023-07-19T13:35:18.341+02:00" leaf="true" version="5">
     <environmentId>apollo</environmentId>
     <hidden>false</hidden>
     <locked>false</locked>
     <properties/>
     <references>java.util.Date</references>
     <references>java.lang.Double</references>
+    <references>java.lang.String</references>
 </node>

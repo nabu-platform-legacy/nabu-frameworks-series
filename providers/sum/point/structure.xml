@@ -1,4 +1,5 @@
 <structure name="point">
     <field name="date" timezone="UTC" type="java.util.Date"/>
     <field name="value" type="java.lang.Double"/>
+    <field minOccurs="0" name="dataKey" type="java.lang.String"/>
 </structure>

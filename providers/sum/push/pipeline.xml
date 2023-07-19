@@ -10,4 +10,6 @@
     <structure definition="nabu.frameworks.series.providers.sum.point" maxOccurs="unbounded" name="points"/>
     <field minOccurs="0" name="amountOfPoints" type="java.lang.Integer"/>
     <field minOccurs="0" name="after" type="java.util.Date"/>
+    <structure definition="nabu.frameworks.series.providers.sum.pointGroup" maxOccurs="unbounded" name="grouped"/>
+    <structure definition="nabu.frameworks.series.providers.sum.data" minOccurs="0" name="historicSum"/>
 </structure>
