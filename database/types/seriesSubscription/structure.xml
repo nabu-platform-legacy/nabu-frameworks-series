@@ -1,0 +1,8 @@
+<structure collectionName="seriesSubscriptions" comment="Subscribe to a data feed.&#10;You can set a filter to filter out particular instances.&#10;You can set a datakey if there are multiple series for the same type. It is more or less a predefined filter" name="seriesSubscription">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field foreignKey="nabu.frameworks.series.database.types.seriesDefinition:id" name="seriesDefinitionId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field comment="This can be &quot;event&quot;, &quot;signal&quot;, &quot;service&quot;, &quot;series&quot;, &quot;gauge&quot;, &quot;data&quot;... The &quot;data&quot; one is subscribing to a specific data type." name="type" type="java.lang.String"/>
+    <field comment="Within the given type, the name of what you are subscribing to. This could be the name of an event, the name of a signal, the name of a data type or the name of a series." name="name" type="java.lang.String"/>
+    <field foreignKey="nabu.frameworks.series.database.types.seriesDataKey:id" minOccurs="0" name="seriesDataKeyId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field minOccurs="0" name="filter" type="java.lang.String"/>
+</structure>

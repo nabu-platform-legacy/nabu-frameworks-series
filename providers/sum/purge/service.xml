@@ -1,0 +1,140 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="872fd64e49a1453c87b6350469ff0df1"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Calculate start of window"
+			disabled="false"
+			id="f2c86487e3024fc89d42b0141d280bba"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="e8198c8771154bea9ca6a0c002b243c4"
+				serviceId="nabu.utils.Date.incrementDuration"
+				resultName="result8cf05e7404244470a9a2907fe74df442"
+				temporaryMapping="true"
+				x="87"
+				y="103"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="045fc4a9dfa443eb9510d94990595e0d"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/until</from>
+				<to>start</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="ff646a21bd674a2bbca0166c46ee33b1"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/window</from>
+				<to>duration</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="ce99aa61a7b249c3a3bb5f921512c392"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>-1</from>
+				<to>times</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="8e9896f1c33147a2a1cb0eb21bc94713"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result8cf05e7404244470a9a2907fe74df442/date</from>
+			<to>after</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Filter points until those after the window"
+			disabled="false"
+			id="28ba1e9028014f21a26c75cdb932991e"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="c113ffb5c8dc4bc49f4270889ab74c11"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>input/state/points[date &gt;= /after]</from>
+			<to>output/state/points</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Recalculate"
+			disabled="false"
+			id="1b5b478266c946adb6ef5e8c71374c1d"
+			lineNumber="4">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="e42bae12cb2943be9f8506cdaa2cdc01"
+				serviceId="nabu.utils.Math.sum"
+				resultName="resultfb2db765d6f843c1b352af56579bf614"
+				temporaryMapping="true"
+				x="79"
+				y="64"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="2fbea83881554d6a84cbe49315a92595"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/state/points/value</from>
+				<to>values</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="bf874e54549d4435a850b3516142c616"
+				serviceId="nabu.utils.List.size"
+				resultName="resultcbe6e3b2574143bc8276f5825d140607"
+				temporaryMapping="true"
+				x="143"
+				y="224"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5f4b95fd1bdb4a9da599727b972714fa"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/state/points</from>
+				<to>list</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="8c9f563fbdc24129aee927745b9a0882"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultfb2db765d6f843c1b352af56579bf614/sum</from>
+			<to>output/state/sum</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="139c866c0fb1404b8b2c02494e9b44a6"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultcbe6e3b2574143bc8276f5825d140607/size</from>
+			<to>output/state/count</to>
+		</steps>
+	</steps>
+</sequence>

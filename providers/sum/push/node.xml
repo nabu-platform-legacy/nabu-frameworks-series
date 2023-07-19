@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.services.vm.VMServiceManager" created="2023-07-10T13:11:17.029+02:00" lastModified="2023-07-19T13:22:34.535+02:00" leaf="true" version="44">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>java.util.Date</references>
+    <references>nabu.services.glue.Services.evaluate</references>
+    <references>nabu.frameworks.series.specs.push</references>
+    <references>java.lang.Integer</references>
+    <references>nabu.utils.List.addAll</references>
+    <references>nabu.frameworks.series.providers.sum.state</references>
+    <references>nabu.frameworks.series.providers.sum.data</references>
+    <references>be.nabu.libs.types.base.Duration</references>
+    <references>nabu.utils.List.size</references>
+    <references>nabu.frameworks.series.providers.sum.properties</references>
+    <references>nabu.utils.Math.sum</references>
+    <references>nabu.utils.Object.last</references>
+    <references>java.lang.Object</references>
+    <references>nabu.frameworks.series.providers.sum.point</references>
+    <references>nabu.utils.Date.incrementDuration</references>
+</node>

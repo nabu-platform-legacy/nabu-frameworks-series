@@ -1,0 +1,10 @@
+<structure collectionName="seriesDataKeys" name="seriesDataKey">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field name="created" timezone="UTC" type="java.util.Date"/>
+    <field minOccurs="0" name="name" type="java.lang.String"/>
+    <field minOccurs="0" name="title" translatable="true" type="java.lang.String"/>
+    <field minOccurs="0" name="description" translatable="true" type="java.lang.String"/>
+    <field foreignKey="nabu.frameworks.series.database.types.seriesDefinition:id" name="seriesDefinitionId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field name="dataKey" type="java.lang.String"/>
+    <field minOccurs="0" name="icon" type="java.lang.String"/>
+</structure>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.types.structure.StructureManager" created="2023-07-10T13:13:15.893+02:00" lastModified="2023-07-10T13:32:40.682+02:00" leaf="true" version="6">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>java.lang.Double</references>
+    <references>java.lang.Long</references>
+    <references>nabu.frameworks.series.providers.sum.point</references>
+</node>

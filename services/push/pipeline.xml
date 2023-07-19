@@ -1,0 +1,8 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field minOccurs="0" name="type" type="java.lang.String"/>
+        <field minOccurs="0" name="name" type="java.lang.String"/>
+        <structure definition="java.lang.Object" maxOccurs="unbounded" name="data"/>
+    </structure>
+    <structure name="output"/>
+</structure>

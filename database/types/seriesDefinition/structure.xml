@@ -1,0 +1,14 @@
+<structure collectionName="seriesDefinitions" name="seriesDefinition">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field name="name" type="java.lang.String"/>
+    <field comment="Human readable" minOccurs="0" name="title" translatable="true" type="java.lang.String"/>
+    <field comment="Human readable" minOccurs="0" name="description" translatable="true" type="java.lang.String"/>
+    <field comment="Whether we want to keep all values that are calculated by this series or only the last one" name="historize" type="java.lang.Boolean"/>
+    <field comment="The service that will be called when new data is available. If no push service is available, we just store the data &quot;raw&quot;" minOccurs="0" name="pushId" type="java.lang.String"/>
+    <field comment="The properties that are passed into the provider(s)" minOccurs="0" name="properties" type="java.lang.String"/>
+    <field comment="Serialized state for this series, the push and purge handlers can use this state to manipulate the next output" minOccurs="0" name="seriesState" type="java.lang.String"/>
+    <field comment="If no window is defined, it never resets" minOccurs="0" name="dataWindow" type="be.nabu.libs.types.base.Duration"/>
+    <field comment="We can periodically refresh the series even if no new data arrives" minOccurs="0" name="refreshInterval" type="be.nabu.libs.types.base.Duration"/>
+    <field comment="The query to extract a data key from the output" minOccurs="0" name="dataKeyQuery" type="java.lang.String"/>
+    <field minOccurs="0" name="dataKeyEnricherId" type="java.lang.String"/>
+</structure>

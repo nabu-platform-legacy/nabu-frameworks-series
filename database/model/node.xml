@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<node artifactManager="be.nabu.eai.module.data.model.DataModelManager" created="2023-07-10T09:44:26.189+02:00" lastModified="2023-07-19T13:13:57.453+02:00" leaf="true" version="54">
+    <environmentId>apollo</environmentId>
+    <hidden>false</hidden>
+    <locked>false</locked>
+    <properties/>
+    <references>nabu.frameworks.series.database.types.seriesDefinition</references>
+    <references>nabu.frameworks.series.database.types.seriesSubscription</references>
+    <references>nabu.frameworks.series.database.types.seriesDataPoint</references>
+    <references>nabu.frameworks.series.database.types.seriesDataKey</references>
+    <references>nabu.frameworks.series.database.types.seriesGauge</references>
+</node>

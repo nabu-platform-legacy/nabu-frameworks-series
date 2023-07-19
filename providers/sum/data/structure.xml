@@ -1,0 +1,5 @@
+<structure name="data">
+    <field name="sum" type="java.lang.Double"/>
+    <field name="count" type="java.lang.Long"/>
+    <field minOccurs="0" name="dataKey" type="java.lang.String"/>
+</structure>

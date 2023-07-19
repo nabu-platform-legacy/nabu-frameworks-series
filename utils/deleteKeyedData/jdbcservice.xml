@@ -1,0 +1,3 @@
+<jdbcService xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<sql>delete from ~series_data_points sdp where sdp.series_definition_id = :seriesDefinitionId and sdp.series_data_key_id = any(:seriesDataKeyIds)</sql>
+</jdbcService>

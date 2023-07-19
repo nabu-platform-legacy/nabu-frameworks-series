@@ -1,0 +1,4 @@
+<structure name="point">
+    <field name="date" timezone="UTC" type="java.util.Date"/>
+    <field name="value" type="java.lang.Double"/>
+</structure>

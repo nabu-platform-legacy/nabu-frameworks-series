@@ -1,0 +1,12 @@
+<structure name="pipeline">
+    <structure name="input">
+        <structure definition="java.lang.Object" minOccurs="0" name="properties"/>
+        <structure comment="The original state of the series" definition="java.lang.Object" minOccurs="0" name="state"/>
+        <structure comment="The data we want to push. It is possible there is no new data to push but we simply want to recalculate the state depending on the window." definition="java.lang.Object" maxOccurs="unbounded" minOccurs="0" name="data"/>
+        <field minOccurs="0" name="window" type="be.nabu.libs.types.base.Duration"/>
+    </structure>
+    <structure name="output">
+        <structure comment="The new state of the series" definition="java.lang.Object" minOccurs="0" name="state"/>
+        <structure comment="The resulting data (e.g. summation, count, cma,...)" definition="java.lang.Object" maxOccurs="unbounded" minOccurs="0" name="data"/>
+    </structure>
+</structure>

@@ -1,0 +1,9 @@
+<structure name="pipeline">
+    <structure name="input">
+        <structure definition="java.lang.Object" minOccurs="0" name="properties"/>
+        <field comment="When it was last called, this allows us to build a delta gauge" minOccurs="0" name="since" type="java.util.Date"/>
+    </structure>
+    <structure name="output">
+        <structure comment="The resulting data (e.g. summation, count, cma,...)" definition="java.lang.Object" maxOccurs="unbounded" minOccurs="0" name="data"/>
+    </structure>
+</structure>

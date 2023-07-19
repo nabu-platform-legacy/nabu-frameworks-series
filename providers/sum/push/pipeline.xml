@@ -1,0 +1,13 @@
+<structure interface="nabu.frameworks.series.specs.push" name="pipeline">
+    <structure name="input" restrict="properties,state">
+        <structure definition="nabu.frameworks.series.providers.sum.properties" name="properties"/>
+        <structure definition="nabu.frameworks.series.providers.sum.state" minOccurs="0" name="state"/>
+    </structure>
+    <structure name="output" restrict="state,data">
+        <structure definition="nabu.frameworks.series.providers.sum.state" minOccurs="0" name="state"/>
+        <structure definition="nabu.frameworks.series.providers.sum.data" maxOccurs="unbounded" minOccurs="0" name="data"/>
+    </structure>
+    <structure definition="nabu.frameworks.series.providers.sum.point" maxOccurs="unbounded" name="points"/>
+    <field minOccurs="0" name="amountOfPoints" type="java.lang.Integer"/>
+    <field minOccurs="0" name="after" type="java.util.Date"/>
+</structure>

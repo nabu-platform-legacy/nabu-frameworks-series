@@ -1,0 +1,5 @@
+<structure name="properties">
+    <field minOccurs="0" name="startSum" type="java.lang.Double"/>
+    <field comment="The query we run on the data to retrieve the value" name="valueQuery" type="java.lang.String"/>
+    <field comment="The query we run on the data to retrieve the date. This is only necessary if we want to have a moving window." minOccurs="0" name="dateQuery" type="java.lang.String"/>
+</structure>

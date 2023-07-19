@@ -1,0 +1,9 @@
+<structure collectionName="seriesGauges" name="seriesGauge">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field name="name" type="java.lang.String"/>
+    <field comment="The gauge service" name="gaugeId" type="java.lang.String"/>
+    <field minOccurs="0" name="properties" type="java.lang.String"/>
+    <field comment="How often we should poll this gauge." minOccurs="0" name="poll" type="be.nabu.libs.types.base.Duration"/>
+    <field comment="The data type that is returned by the gauge" minOccurs="0" name="dataType" type="java.lang.String"/>
+    <field comment="Useful for delta gauges" minOccurs="0" name="lastCalled" timezone="UTC" type="java.util.Date"/>
+</structure>

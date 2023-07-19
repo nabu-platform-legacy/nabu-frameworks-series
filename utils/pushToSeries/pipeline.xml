@@ -1,0 +1,21 @@
+<structure name="pipeline">
+    <structure name="input">
+        <field name="seriesId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+        <structure definition="java.lang.Object" maxOccurs="unbounded" minOccurs="0" name="data"/>
+    </structure>
+    <structure name="output"/>
+    <structure collectionName="seriesDefinitions" definition="nabu.frameworks.series.crud.seriesDefinition.types.output" name="series"/>
+    <structure definition="java.lang.Object" minOccurs="0" name="state"/>
+    <structure definition="java.lang.Object" minOccurs="0" name="properties"/>
+    <structure comment="The new state of the series" definition="java.lang.Object" minOccurs="0" name="newState"/>
+    <field name="locked" type="java.lang.Boolean"/>
+    <field minOccurs="0" name="stateType" type="java.lang.String"/>
+    <field maxOccurs="unbounded" name="dataKeys" type="java.lang.String"/>
+    <structure collectionName="seriesDataKeys" definition="nabu.frameworks.series.crud.seriesDataKey.types.output" maxOccurs="unbounded" minOccurs="0" name="existingDataKeys"/>
+    <structure collectionName="seriesDataKeys" definition="nabu.frameworks.series.crud.seriesDataKey.types.createInput" name="dataKeyCreateInput" restrict="id"/>
+    <structure collectionName="seriesDataPoints" definition="nabu.frameworks.series.database.types.seriesDataPoint" maxOccurs="unbounded" name="dataPointsToCreate"/>
+    <field minOccurs="0" name="date" type="java.util.Date"/>
+    <field name="dataKey" type="java.lang.String"/>
+    <structure collectionName="seriesDataKeys" definition="nabu.frameworks.series.crud.seriesDataKey.types.output" minOccurs="0" name="existingDataKey"/>
+    <field minOccurs="0" name="server" type="java.lang.String"/>
+</structure>

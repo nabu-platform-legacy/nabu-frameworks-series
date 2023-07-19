@@ -1,0 +1,10 @@
+<structure interface="nabu.frameworks.series.specs.purge" name="pipeline">
+    <structure name="input" restrict="properties,state">
+        <structure definition="nabu.frameworks.series.providers.sum.properties" name="properties"/>
+        <structure definition="nabu.frameworks.series.providers.sum.state" name="state"/>
+    </structure>
+    <structure name="output" restrict="state">
+        <structure definition="nabu.frameworks.series.providers.sum.state" name="state"/>
+    </structure>
+    <field minOccurs="0" name="after" type="java.util.Date"/>
+</structure>

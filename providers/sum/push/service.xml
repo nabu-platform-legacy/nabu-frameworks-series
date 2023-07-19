@@ -1,0 +1,491 @@
+<sequence xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		disabled="false"
+		id="b9bffc9558704dd0b02a2157ef155e6e"
+		lineNumber="1">
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Map the output state"
+			disabled="false"
+			id="6adb9937014248fcb1f8452e707ed023"
+			lineNumber="2">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="d46c33ebe14248a08f23bd2b63d360b3"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>input/state</from>
+			<to>output/state</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="If we don't have a sum yet, initialize it"
+			disabled="false"
+			id="7923fc926cb147b98138a024ba2d9d2f"
+			label="output/state/sum == null"
+			lineNumber="3">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="7f48f48dbac04cf2ba68e6c0149a7461"
+				serviceId="nabu.utils.Object.last"
+				resultName="result51a9d14ab6e74d7b9c3293ce80f6f891"
+				temporaryMapping="true"
+				x="59"
+				y="78"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="71a0b08c6cd14d5b9c52dc6d4c78d1fb"
+					mask="false"
+					optional="false"
+					fixedValue="true">
+				<from>0</from>
+				<to>options[0]</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="5f1ef64fa0cf4def8525bde52f5731c6"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/properties/startSum</from>
+				<to>options[1]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="4f4048e0e40f46f2814770adcadb9e64"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result51a9d14ab6e74d7b9c3293ce80f6f891/last</from>
+			<to>output/state/sum</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="92b61e64a0ca4a7e8a385f604aefbb5e"
+			label="output/state/count == null"
+			lineNumber="4">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="aa3b3c0e96784dbaaaca514b18dd1c41"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>0</from>
+			<to>output/state/count</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.For"
+			disabled="false"
+			id="26b7a51aac6547f6a92b3d8084930a56"
+			lineNumber="5"
+			variable="data"
+			into="points">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Get value"
+				disabled="false"
+				id="74c2a3625ca04450a6847d6c5157c10d"
+				lineNumber="6">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="39897032e2b24786ae79206cc367b228"
+					serviceId="nabu.services.glue.Services.evaluate"
+					resultName="resultb1163ea9b7fd4cfdab8bc7c0c6af52fb"
+					temporaryMapping="true"
+					x="95"
+					y="97"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="bcb2119eaab641b98246ff24a53c952b"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>input/properties/valueQuery</from>
+					<to>rule</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="2b3f0949f5f14f84ad231f0df037f207"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>data</from>
+					<to>context[0]</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="9afdee18b7a5476ebeec99e9561bafec"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultb1163ea9b7fd4cfdab8bc7c0c6af52fb/response</from>
+				<to>points[0]/value</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				disabled="false"
+				id="620b7bab1ed945c899631c7a13a87b7f"
+				label="input/properties/dateQuery != null &amp;&amp; input/window != null"
+				lineNumber="7">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="00a763fe0ea1489eb4288af714ac355c"
+					serviceId="nabu.services.glue.Services.evaluate"
+					resultName="result8004138813614736a5c04e859088aad0"
+					temporaryMapping="true"
+					x="185"
+					y="42"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="93fb16a9f0e24c53aedb5b88b2c1c3e9"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>input/properties/dateQuery</from>
+					<to>rule</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="8bd65144b6804e659de09e0374766647"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>data</from>
+					<to>context[0]</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="54c98e08f30f4911b1df95fc0c8867b4"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result8004138813614736a5c04e859088aad0/response</from>
+				<to>points[0]/date</to>
+			</steps>
+		</steps>
+		<query>input/data</query>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Sequence"
+			comment="If we are windowing, purge older data"
+			disabled="false"
+			id="9cb69b6c60264f0098ae450eddb7fb41"
+			label="input/properties/dateQuery != null &amp;&amp; input/window != null"
+			lineNumber="8">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Calculate start of window"
+				disabled="false"
+				id="f2c86487e3024fc89d42b0141d280bba"
+				lineNumber="9">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="e8198c8771154bea9ca6a0c002b243c4"
+					serviceId="nabu.utils.Date.incrementDuration"
+					resultName="result8cf05e7404244470a9a2907fe74df442"
+					temporaryMapping="true"
+					x="87"
+					y="103"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="ff646a21bd674a2bbca0166c46ee33b1"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>input/window</from>
+					<to>duration</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="ce99aa61a7b249c3a3bb5f921512c392"
+						mask="false"
+						optional="false"
+						fixedValue="true">
+					<from>-1</from>
+					<to>times</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="dec74e1e7ea441448d057fb050834322"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result8cf05e7404244470a9a2907fe74df442/date</from>
+				<to>after</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Filter points until those after the window"
+				disabled="false"
+				id="28ba1e9028014f21a26c75cdb932991e"
+				lineNumber="10">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="c113ffb5c8dc4bc49f4270889ab74c11"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>input/state/points[date &gt;= /after]</from>
+				<to>output/state/points</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Recalculate state"
+				disabled="false"
+				id="1b5b478266c946adb6ef5e8c71374c1d"
+				lineNumber="11">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="e42bae12cb2943be9f8506cdaa2cdc01"
+					serviceId="nabu.utils.Math.sum"
+					resultName="resultfb2db765d6f843c1b352af56579bf614"
+					temporaryMapping="true"
+					x="79"
+					y="64"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="2fbea83881554d6a84cbe49315a92595"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>input/state/points/value</from>
+					<to>values</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="bf874e54549d4435a850b3516142c616"
+					serviceId="nabu.utils.List.size"
+					resultName="resultcbe6e3b2574143bc8276f5825d140607"
+					temporaryMapping="true"
+					x="143"
+					y="224"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="5f4b95fd1bdb4a9da599727b972714fa"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>input/state/points</from>
+					<to>list</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="8c9f563fbdc24129aee927745b9a0882"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultfb2db765d6f843c1b352af56579bf614/sum</from>
+				<to>output/state/sum</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="139c866c0fb1404b8b2c02494e9b44a6"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultcbe6e3b2574143bc8276f5825d140607/size</from>
+				<to>output/state/count</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+				comment="Keep points in state"
+				disabled="false"
+				id="8d909451c4c74d25bf82d44c2265a7b7"
+				lineNumber="12">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="c02a5d45c50b480c90e7799bfc6dd6d6"
+					serviceId="nabu.utils.List.addAll"
+					resultName="result0d91eb43e7674d04875390a88940e94c"
+					temporaryMapping="true"
+					x="162"
+					y="113"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="7bcf6c0d6c2846db8fb9bf0d7f8ae9c9"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>input/state/points</from>
+					<to>list</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="c2411c1016214f1da85db102f022c367"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>points</from>
+					<to>objects</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="455edc61a4bf41cba16e7ab402b1fcd8"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result0d91eb43e7674d04875390a88940e94c/list</from>
+				<to>output/state/points</to>
+			</steps>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			disabled="false"
+			id="e58f2f8f751b4e029ce3f9fe7e833f89"
+			lineNumber="13">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="51f3d2c7330d42bf86a88b9b8d891757"
+				serviceId="nabu.utils.List.size"
+				resultName="result82104641a0db4e28ac638c46775e153d"
+				temporaryMapping="true"
+				x="23"
+				y="113"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="ed43618551fa443aa681c1b7bf1e966a"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>points</from>
+				<to>list</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="7ff4181a77f842d3b4bd2e5e39ac6779"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>result82104641a0db4e28ac638c46775e153d/size</from>
+			<to>amountOfPoints</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Calculate the new sum &amp; count"
+			disabled="false"
+			id="1e79524157c843d1b1e92df74c2cb6e8"
+			lineNumber="14">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="792810495c3c419f9f6695da19e9dcbf"
+				serviceId="nabu.utils.Math.sum"
+				resultName="result0613bcd3426b407c817b4659d958f078"
+				temporaryMapping="true"
+				x="86"
+				y="108"
+				invocationOrder="0"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="253269b70224462d80d2bc70225253fb"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>points/value</from>
+				<to>values</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="8908d414ce344c18b1f5b0d8600ecc07"
+				mask="false"
+				optional="false"
+				fixedValue="true">
+			<from>=output/state/count + amountOfPoints</from>
+			<to>output/state/count</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+				disabled="false"
+				id="81eba9aea4af491ab8a9ef801b3294df"
+				serviceId="nabu.utils.Math.sum"
+				resultName="resultf933ece96dac47a480064176b7f840aa"
+				temporaryMapping="true"
+				x="500"
+				y="280"
+				invocationOrder="1"
+				asynchronous="false"
+				recache="false">
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="677c005e5a054a1dbda23991f8d9094d"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>result0613bcd3426b407c817b4659d958f078/sum</from>
+				<to>values[1]</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="9d7490b782e04715b47400e556f9b5be"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>output/state/sum</from>
+				<to>values[0]</to>
+			</steps>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="f1bcf039e2404cfabf4870d655ca6359"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>resultf933ece96dac47a480064176b7f840aa/sum</from>
+			<to>output/state/sum</to>
+		</steps>
+	</steps>
+	<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+			comment="Map data output"
+			disabled="false"
+			id="06f7253cdb1148b7ac1885e7546a2dad"
+			lineNumber="15">
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="b2af424d47dc4505bbb1922a68923c7c"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>output/state/count</from>
+			<to>output/data[0]/count</to>
+		</steps>
+		<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+				disabled="false"
+				id="8a0a456dec984be6918cc614ed84920e"
+				mask="false"
+				optional="false"
+				fixedValue="false">
+			<from>output/state/sum</from>
+			<to>output/data[0]/sum</to>
+		</steps>
+	</steps>
+</sequence>

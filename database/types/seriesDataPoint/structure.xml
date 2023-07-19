@@ -1,0 +1,10 @@
+<structure collectionName="seriesDataPoints" name="seriesDataPoint">
+    <field name="id" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" primaryKey="true" type="java.util.UUID"/>
+    <field foreignKey="nabu.frameworks.series.database.types.seriesDefinition:id" name="seriesDefinitionId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field name="data" type="java.lang.String"/>
+    <field comment="The data type of the associated data" name="dataType" type="java.lang.String"/>
+    <field name="server" type="java.lang.String"/>
+    <field foreignKey="nabu.frameworks.series.database.types.seriesDataKey:id" minOccurs="0" name="seriesDataKeyId" pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}|[0-9a-fA-F]{32}" type="java.util.UUID"/>
+    <field name="started" timezone="UTC" type="java.util.Date"/>
+    <field minOccurs="0" name="stopped" timezone="UTC" type="java.util.Date"/>
+</structure>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataModel>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.series.database.types.seriesDefinition</type>
+        <x>53</x>
+        <y>60</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.series.database.types.seriesSubscription</type>
+        <x>562</x>
+        <y>467</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.series.database.types.seriesDataPoint</type>
+        <x>1162</x>
+        <y>378</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.series.database.types.seriesDataKey</type>
+        <x>689</x>
+        <y>61</y>
+    </entries>
+    <entries>
+        <synchronize>true</synchronize>
+        <type>nabu.frameworks.series.database.types.seriesGauge</type>
+        <x>64</x>
+        <y>527</y>
+    </entries>
+</dataModel>
