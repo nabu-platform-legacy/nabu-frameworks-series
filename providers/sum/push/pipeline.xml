@@ -12,4 +12,5 @@
     <field minOccurs="0" name="after" type="java.util.Date"/>
     <structure definition="nabu.frameworks.series.providers.sum.pointGroup" maxOccurs="unbounded" name="grouped"/>
     <structure definition="nabu.frameworks.series.providers.sum.data" minOccurs="0" name="historicSum"/>
+    <field minOccurs="0" name="before" type="java.util.Date"/>
 </structure>

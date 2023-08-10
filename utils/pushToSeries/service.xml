@@ -1108,8 +1108,8 @@
 						serviceId="nabu.utils.reflection.Type.of"
 						resultName="result419853e22ca94eb0b9e5ac57fcd99fa2"
 						temporaryMapping="true"
-						x="98"
-						y="489"
+						x="151"
+						y="417"
 						invocationOrder="0"
 						asynchronous="false"
 						recache="false">
@@ -1132,6 +1132,129 @@
 					<from>result419853e22ca94eb0b9e5ac57fcd99fa2/typeId</from>
 					<to>dataPointsToCreate[0]/dataType</to>
 				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="d97e134a6333497faec0058ab90d43fd"
+						serviceId="nabu.utils.reflection.Type.is"
+						resultName="resulte57f5f8f52254ace9d0a8eb112c96431"
+						temporaryMapping="true"
+						x="226"
+						y="511"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="d771d9bfef484c5aba55ab6d931942d7"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>data</from>
+						<to>typeInstance</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="932b40fd92e74631bc7c960870cab2a7"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>nabu.frameworks.series.specs.windowedData</from>
+						<to>typeId</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="1c3e1dfb44fa4f42b6b07f10e321238c"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>resulte57f5f8f52254ace9d0a8eb112c96431/is</from>
+					<to>windowed</to>
+				</steps>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Map"
+					disabled="false"
+					id="9a9ebfbdf70047e0b294cb2618e4cb0d"
+					label="windowed"
+					lineNumber="34">
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="9b2000c25d444f5a82f244d6e5d148d9"
+						serviceId="nabu.utils.reflection.Type.get"
+						resultName="resultc62236f1d8ad49199f4046f2cbefb68e"
+						temporaryMapping="true"
+						x="73"
+						y="288"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="422c3fcfd0d54b7e898e5c0b2333a5d8"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>data</from>
+						<to>typeInstance</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="c9b68c492a4a4cfa9feeefc8dd6e9046"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>windowStarted</from>
+						<to>path</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="33f5b792a59947a7ad41f8005e6b9189"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>resultc62236f1d8ad49199f4046f2cbefb68e/value</from>
+					<to>dataPointsToCreate[0]/windowStarted</to>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+						disabled="false"
+						id="94dae77f695442bca974cde0f7303dca"
+						serviceId="nabu.utils.reflection.Type.get"
+						resultName="result4452fe5d539b4058a7ce8af1568a8924"
+						temporaryMapping="true"
+						x="127"
+						y="431"
+						invocationOrder="0"
+						asynchronous="false"
+						recache="false">
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="5994a6c79fc74538828f2c30a0157016"
+							mask="false"
+							optional="false"
+							fixedValue="false">
+						<from>data</from>
+						<to>typeInstance</to>
+					</steps>
+					<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+							disabled="false"
+							id="179c7ac273fd4150b48c79c112ea6063"
+							mask="false"
+							optional="false"
+							fixedValue="true">
+						<from>windowStopped</from>
+						<to>path</to>
+					</steps>
+				</steps>
+				<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+						disabled="false"
+						id="dab29982bb4c4d87a67e263ae82d1647"
+						mask="false"
+						optional="false"
+						fixedValue="false">
+					<from>result4452fe5d539b4058a7ce8af1568a8924/value</from>
+					<to>dataPointsToCreate[0]/windowStopped</to>
+				</steps>
 			</steps>
 			<query>input/data</query>
 		</steps>
@@ -1139,7 +1262,7 @@
 				disabled="false"
 				id="dba187ff37354065b139c414f1ebcae5"
 				label="dataPointsToCreate"
-				lineNumber="34">
+				lineNumber="35">
 			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
 					disabled="false"
 					id="26087e04eda0421897d79ebc3a4fcd13"

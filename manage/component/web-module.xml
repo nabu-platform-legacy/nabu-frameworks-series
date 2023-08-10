@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<webModule>
+    <path>/series</path>
+    <webFragments>nabu.frameworks.series.crud.seriesDataKey</webFragments>
+    <webFragments>nabu.frameworks.series.crud.seriesDataPoint</webFragments>
+    <webFragments>nabu.frameworks.series.crud.seriesDefinition</webFragments>
+    <webFragments>nabu.frameworks.series.crud.seriesGauge</webFragments>
+    <webFragments>nabu.frameworks.series.crud.seriesSubscription</webFragments>
+    <audience>MANAGER</audience>
+</webModule>

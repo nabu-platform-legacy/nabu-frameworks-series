@@ -1,4 +1,4 @@
-<structure name="data">
+<structure name="data" superType="nabu.frameworks.series.specs.windowedData">
     <field name="sum" type="java.lang.Double"/>
     <field name="count" type="java.lang.Long"/>
     <field minOccurs="0" name="dataKey" type="java.lang.String"/>

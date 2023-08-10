@@ -1,0 +1,4 @@
+<structure name="windowedData">
+    <field minOccurs="0" name="windowStarted" type="java.util.Date"/>
+    <field minOccurs="0" name="windowStopped" type="java.util.Date"/>
+</structure>

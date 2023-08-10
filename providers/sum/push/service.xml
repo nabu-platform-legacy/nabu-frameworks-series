@@ -210,6 +210,27 @@
 				<from>result8cf05e7404244470a9a2907fe74df442/date</from>
 				<to>after</to>
 			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Invoke"
+					disabled="false"
+					id="40f3ebfca80340868ca8784118ad6fa2"
+					serviceId="nabu.utils.Date.now"
+					resultName="resultdc76af7f744945a2a26dff267ac7ae14"
+					temporaryMapping="true"
+					x="443"
+					y="287"
+					invocationOrder="0"
+					asynchronous="false"
+					recache="false">
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="f1a1f7ddd1d84bfa816272dea06a9643"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>resultdc76af7f744945a2a26dff267ac7ae14/date</from>
+				<to>before</to>
+			</steps>
 		</steps>
 		<steps xsi:type="be.nabu.libs.services.vm.step.Map"
 				comment="Filter points until those after the window"
@@ -675,6 +696,24 @@
 					fixedValue="false">
 				<from>result86bdf5fd35e84f62a6edfbae175b558d/sum</from>
 				<to>historicSum/count</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="b0b4a8cbc86442f995dd77c9160dfe67"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>after</from>
+				<to>historicSum/windowStarted</to>
+			</steps>
+			<steps xsi:type="be.nabu.libs.services.vm.step.Link"
+					disabled="false"
+					id="06c0adce702740248fe881fc1b1f9c32"
+					mask="false"
+					optional="false"
+					fixedValue="false">
+				<from>before</from>
+				<to>historicSum/windowStopped</to>
 			</steps>
 		</steps>
 		<query>grouped</query>
