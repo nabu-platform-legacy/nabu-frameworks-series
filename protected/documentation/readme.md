@@ -36,6 +36,11 @@ Every data type is automatically a series you can subscribe to
 
 Additionally you have named series
 
+# Grouping
+
+Data keys are used for grouping, for instance suppose you are counting contract creates, you can group by customer.
+Must be able to have multiple though?
+
 # Usecases
 
 
